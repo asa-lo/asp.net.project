@@ -1,1 +1,1 @@
-# asp.net.project
+Applikationen är skapad med ASP.NET MVC. Alikatione är ett ärendehanteringssystem som heter Caser och tanken är att företag kan använda sig av Casers tjänster för att hantera inkommande ärenden eller To-Dos. Applikation föreställer en SaaS-tjänst (Software as a Service) som är ett ärendehanteringssystem. Till denna har jag skapat ett administrations-gränssnitt, som man kan använda för att lagra, radera och ändra data.
