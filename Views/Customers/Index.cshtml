@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Caser.Models.Customers>
+
+@{
+    ViewData["Title"] = "All customers";
+}
+
+<h1>All customers</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Create New</a>
+</p>
+
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.CustId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CustName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CustEmail)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CustPhone)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CustId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CustName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CustEmail)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CustPhone)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.CustId" class="btn btn-primary">Edit</a>
+                        <a asp-action="Delete" asp-route-id="@item.CustId" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

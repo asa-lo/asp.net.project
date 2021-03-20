@@ -1,0 +1,39 @@
+﻿@model Caser.Models.Customers
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete @Model.CustName</h1>
+
+<h3>Are you sure you want to delete @Model.CustName?</h3>
+<div>
+    <h4>Customers</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CustName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CustName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CustEmail)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CustEmail)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CustPhone)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CustPhone)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="CustId" />
+        <input type="submit" value="Delete" class="btn btn-danger" />
+        <a asp-action="Index"class="btn btn-primary">Back to List</a>
+    </form>
+</div>

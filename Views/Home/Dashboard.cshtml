@@ -1,0 +1,40 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@{
+
+    ViewData["Title"] = "Dashboard | Caser";
+
+}
+
+<section class="dashboard">
+    <div class="dashb-container">
+        <h1>Welcome, @User.Identity.Name</h1>
+        <div class="row">
+            <div class="column">
+                <h2>Cases</h2>
+                <ul class="dashb-btns">
+                    <li>
+                        <a class="dashb-btn-1" asp-area="" asp-controller="Cases" asp-action="Create">Create a new case</a>
+                    </li>
+                    <li>
+                        <a class="dashb-btn-2" asp-area="" asp-controller="Cases" asp-action="Index">Manage existing cases</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="column">
+                <h2>Customers</h2>
+                <ul class="dashb-btns">
+                    <li>
+                        <a class="dashb-btn-1" asp-area="" asp-controller="Customers" asp-action="Create">Add a new customer</a>
+                    </li>
+                    <li>
+                        <a class="dashb-btn-2" asp-area="" asp-controller="Customers" asp-action="Index">Manage existing customers</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>

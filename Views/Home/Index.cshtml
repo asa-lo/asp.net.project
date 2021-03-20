@@ -1,0 +1,26 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@{
+    ViewData["Title"] = "Home | Caser";
+}
+
+
+<section class="home-page-sec">
+        <div class="home-page-div">
+
+            <h2>Caser - the only case-management solution you'll ever need.</h2>
+
+                @if (!SignInManager.IsSignedIn(User))
+                {
+                    <a class="dashb-btn-1" href="./Identity/Account/Login">Login on existing account</a>
+                    <a class="dashb-btn-2" href="./Identity/Account/Register">Register a new account</a>
+                }
+                else
+                {
+                    <a class="dashb-btn-1" href="./Home/Dashboard">You're logged in, begin! </a>
+                }
+</div>
+
+</section>

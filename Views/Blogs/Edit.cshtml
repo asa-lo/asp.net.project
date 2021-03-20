@@ -1,0 +1,39 @@
+﻿@model Caser.Models.Blog
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Editing @Model.PostSub</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="PostId" />
+            <div class="form-group">
+                <label asp-for="PostSub" class="control-label"></label>
+                <input asp-for="PostSub" class="form-control" />
+                <span asp-validation-for="PostSub" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PostContent" class="control-label"></label>
+                <textarea asp-for="PostContent" rows="5" columns="40" class="form-control"></textarea>
+                <span asp-validation-for="PostContent" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save and Close" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a class="btn btn-pimary"asp-action="Index">Back to List</a>
+    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@Model.PostId">Delete</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

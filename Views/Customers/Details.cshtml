@@ -1,0 +1,37 @@
+﻿@model Caser.Models.Customers
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>@Model.CustName</h1>
+
+<div>
+    <h4>Customers</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CustName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CustName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CustEmail)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CustEmail)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CustPhone)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CustPhone)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.CustId" class="btn btn-primary">Edit</a>
+    <a asp-action="Delete" asp-route-id="@Model.CustId" class="btn btn-danger">Delete</a>
+    <a asp-action="Index" class="btn btn-primary">Back to List</a>
+</div>

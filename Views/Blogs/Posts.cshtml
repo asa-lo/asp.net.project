@@ -1,0 +1,22 @@
+﻿@model IEnumerable<Caser.Models.Blog>
+
+@{
+    ViewData["Title"] = "Caser Blog";
+}
+
+<h1>Patch Notes</h1>
+
+
+
+<div class="blog-div">
+    @foreach (var item in Model)
+    {
+
+        <div class="post-container">
+            <h3>@Html.DisplayFor(modelItem => item.PostSub)</h3>
+            <p>@Html.DisplayFor(modelItem => item.PostContent)</p>
+        </div>
+
+    }
+
+</div>

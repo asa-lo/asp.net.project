@@ -1,0 +1,77 @@
+﻿@model IEnumerable<Caser.Models.Cases>
+
+@{
+    ViewData["Title"] = "Finished cases";
+}
+
+<h1>Finished cases</h1>
+
+<p>
+    <a asp-action="Index" class="btn btn-primary">Back to open cases</a>
+</p>
+
+<form asp-controller="Cases" asp-action="FinishedCases" method="get">
+    <p>
+        <label class="control-label">Search:</label>
+        <input type="text" name="SearchString" class="form-control" />
+        <input type="submit" value="Filter" class="btn btn-primary" />
+        <button type="button" class="btn btn-secondary" onclick="location.href = '@Url.Action("FinishedCases", "Cases")'">Reset</button>
+    </p>
+</form>
+
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.CaseId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CaseSubject)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CaseContactName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CaseContactPhone)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CustId)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                @if (item.CaseIsFinished == true)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CaseId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CaseSubject)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CaseContactName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CaseContactPhone)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CustId)
+                        </td>
+                        <td>
+                            <a asp-action="Details" asp-route-id="@item.CaseId" class="btn btn-primary">View closed case</a>
+                        </td>
+                    </tr>
+                }
+                else
+                {
+                    continue;
+                }
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,53 @@
+﻿@model Caser.Models.Cases
+
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create new ticket</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CaseSubject" class="control-label"></label>
+                <input asp-for="CaseSubject" class="form-control" />
+                <span asp-validation-for="CaseSubject" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+
+                <label asp-for="CaseDesc" class="control-label"></label>
+                <textarea asp-for="CaseDesc" rows="5" columns="40" class="form-control"></textarea>
+                <span asp-validation-for="CaseDesc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CaseContactName" class="control-label"></label>
+                <input asp-for="CaseContactName" class="form-control" />
+                <span asp-validation-for="CaseContactName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CaseContactPhone" class="control-label"></label>
+                <input asp-for="CaseContactPhone" class="form-control" />
+                <span asp-validation-for="CaseContactPhone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustId" class="control-label"></label>
+                <select asp-for="CustId" class="form-control" asp-items="ViewBag.CustId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a class="btn btn-primary" asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
